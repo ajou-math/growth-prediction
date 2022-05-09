@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false, //디버그창 없애는거
       title: 'growth prediction',
       theme: ThemeData(
-        primarySwatch: Colors.orange,
+        primarySwatch: Colors.blueGrey,
       ),
       home: const MyHome(),
     );
@@ -37,6 +37,7 @@ class MyHome extends StatelessWidget {
           width: 500.0,
           height: 150.0,
         ),
+        backgroundColor: Color.fromARGB(255, 19, 77, 124),
         centerTitle: true,
         elevation: 0.0,
         actions: <Widget>[
@@ -54,10 +55,10 @@ class MyHome extends StatelessWidget {
               height: 80.0,
               child: const UserAccountsDrawerHeader(
                 //const 지워야할수도
-                accountName: Text('Temp name'),
-                accountEmail: Text('Temp email'),
+                accountName: Text('Name'),
+                accountEmail: Text('birth'),
                 decoration: BoxDecoration(
-                  color: Colors.orange,
+                  color: Color.fromARGB(255, 19, 77, 124),
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(40.0),
                     bottomRight: Radius.circular(40.0),
