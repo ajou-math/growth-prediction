@@ -17,9 +17,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false, //디버그창 없애는거
       title: 'growth prediction',
-      theme: ThemeData(
-        primarySwatch: Colors.orange,
-      ),
       home: const MyHome(),
     );
   }
@@ -37,6 +34,7 @@ class MyHome extends StatelessWidget {
           width: 500.0,
           height: 150.0,
         ),
+        backgroundColor: Color.fromARGB(255, 18, 79, 130),
         centerTitle: true,
         elevation: 0.0,
         actions: <Widget>[
@@ -57,7 +55,7 @@ class MyHome extends StatelessWidget {
                 accountName: Text('Temp name'),
                 accountEmail: Text('Temp email'),
                 decoration: BoxDecoration(
-                  color: Colors.orange,
+                  color: Color.fromARGB(255, 18, 79, 130),
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(40.0),
                     bottomRight: Radius.circular(40.0),
