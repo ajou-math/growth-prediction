@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/page/current.dart';
+import 'package:mobile/page/exResult.dart';
+import 'package:mobile/page/exercise.dart';
+import 'package:mobile/page/food.dart';
+import 'package:mobile/page/sleep.dart';
 
 void main() {
   runApp(const MyApp());
@@ -66,7 +71,10 @@ class MyHome extends StatelessWidget {
                 color: Color.fromARGB(255, 24, 23, 23),
               ),
               title: const Text('식단'),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Food()));
+              },
             ),
             ListTile(
               leading: const Icon(
@@ -74,7 +82,10 @@ class MyHome extends StatelessWidget {
                 color: Color.fromARGB(255, 24, 23, 23),
               ),
               title: const Text('운동량'),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Exercise()));
+              },
             ),
             ListTile(
               leading: const Icon(
@@ -82,15 +93,21 @@ class MyHome extends StatelessWidget {
                 color: Color.fromARGB(255, 24, 23, 23),
               ),
               title: const Text('수면'),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Sleep()));
+              },
             ),
             ListTile(
               leading: const Icon(
                 Icons.addchart_rounded,
                 color: Color.fromARGB(255, 24, 23, 23),
               ),
-              title: const Text('현재 정보보기'),
-              onTap: () {},
+              title: const Text('현재 BMI'),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Current()));
+              },
             ),
             ListTile(
               leading: const Icon(
@@ -98,7 +115,10 @@ class MyHome extends StatelessWidget {
                 color: Color.fromARGB(255, 24, 23, 23),
               ),
               title: const Text('이전 검사결과 상세보기'),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const ExResult()));
+              },
             ),
           ],
         ),
