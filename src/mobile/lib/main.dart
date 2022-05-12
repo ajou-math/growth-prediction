@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/page/current.dart';
+import 'package:mobile/page/exResult.dart';
+import 'package:mobile/page/exercise.dart';
+import 'package:mobile/page/food.dart';
+import 'package:mobile/page/sleep.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false, //디버그창 없애는거
       title: 'growth prediction',
       theme: ThemeData(
-        primarySwatch: Colors.orange,
+        primarySwatch: Colors.blueGrey,
       ),
       home: const MyHome(),
     );
@@ -32,6 +37,7 @@ class MyHome extends StatelessWidget {
           width: 500.0,
           height: 150.0,
         ),
+        backgroundColor: Color.fromARGB(255, 19, 77, 124),
         centerTitle: true,
         elevation: 0.0,
         actions: <Widget>[
@@ -49,10 +55,10 @@ class MyHome extends StatelessWidget {
               height: 80.0,
               child: const UserAccountsDrawerHeader(
                 //const 지워야할수도
-                accountName: Text('Temp name'),
-                accountEmail: Text('Temp email'),
+                accountName: Text('Name'),
+                accountEmail: Text('birth'),
                 decoration: BoxDecoration(
-                  color: Colors.orange,
+                  color: Color.fromARGB(255, 19, 77, 124),
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(40.0),
                     bottomRight: Radius.circular(40.0),
@@ -66,7 +72,10 @@ class MyHome extends StatelessWidget {
                 color: Color.fromARGB(255, 24, 23, 23),
               ),
               title: const Text('식단'),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Food()));
+              },
             ),
             ListTile(
               leading: const Icon(
@@ -74,7 +83,10 @@ class MyHome extends StatelessWidget {
                 color: Color.fromARGB(255, 24, 23, 23),
               ),
               title: const Text('운동량'),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Exercise()));
+              },
             ),
             ListTile(
               leading: const Icon(
@@ -82,15 +94,21 @@ class MyHome extends StatelessWidget {
                 color: Color.fromARGB(255, 24, 23, 23),
               ),
               title: const Text('수면'),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Sleep()));
+              },
             ),
             ListTile(
               leading: const Icon(
                 Icons.addchart_rounded,
                 color: Color.fromARGB(255, 24, 23, 23),
               ),
-              title: const Text('현재 정보보기'),
-              onTap: () {},
+              title: const Text('현재 BMI'),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Current()));
+              },
             ),
             ListTile(
               leading: const Icon(
@@ -98,7 +116,10 @@ class MyHome extends StatelessWidget {
                 color: Color.fromARGB(255, 24, 23, 23),
               ),
               title: const Text('이전 검사결과 상세보기'),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const ExResult()));
+              },
             ),
           ],
         ),
