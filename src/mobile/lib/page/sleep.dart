@@ -12,6 +12,7 @@ class Sleep extends StatelessWidget {
           width: 500.0,
           height: 150.0,
         ),
+        backgroundColor: Color.fromARGB(255, 18, 79, 130),
       ),
       body: Center(
         child: ElevatedButton(

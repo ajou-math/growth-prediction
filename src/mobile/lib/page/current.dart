@@ -1,4 +1,7 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:mobile/page/currentBmi.dart';
 
 class Current extends StatefulWidget {
   const Current({Key? key}) : super(key: key);
@@ -10,6 +13,7 @@ class Current extends StatefulWidget {
 class _CurrentState extends State<Current> {
   TextEditingController controller_height = TextEditingController();
   TextEditingController controller_weight = TextEditingController();
+  late double bmi;
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +63,7 @@ class _CurrentState extends State<Current> {
                               border: OutlineInputBorder(),
                               labelText: '현재 체중을 입력하세요 (단위 : kg)'),
                           keyboardType: TextInputType.number,
-                          obscureText: true,
+                          obscureText: false,
                         ),
                         const SizedBox(
                           height: 40.0,
@@ -68,7 +72,22 @@ class _CurrentState extends State<Current> {
                           minWidth: 100.0,
                           height: 50.0,
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        CurrentBmi(
+                                            bmi: double.parse(
+                                                    controller_weight.text) /
+                                                pow(
+                                                    double.parse(
+                                                            controller_height
+                                                                .text) /
+                                                        100,
+                                                    2))),
+                              );
+                            },
                             style: ElevatedButton.styleFrom(
                               primary: Color.fromARGB(255, 18, 79, 130),
                             ),
