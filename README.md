@@ -1,4 +1,4 @@
-# project name : growth-prediction
+# project name : growth_prediction
 
 * current version : 4.28
 
