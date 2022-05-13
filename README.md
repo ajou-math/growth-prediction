@@ -16,6 +16,24 @@ setting : 백엔드가 서버관리를 할 때 필요한 파일 .js .json .lock 
 #
 
 #
+index.jsp / index.css, login.js     -   로그인 페이지
+
+main.jsp / main.js, main.css        -   메인 화면(아이들 목록보기, 아이 선택 등)
+
+signup.jsp / signup.js. signup.css  -   회원가입
+
+image_upload.jsp / image_upload.js  -   뼈 사진 업로드
+
+common.css                          -   공통 css파일
+
+footer.jsp, header.jsp              -   공통 헤더, 푸터
+
+base.jsp                            -   jsp파일 기본 양식
+
+find_id.jsp, find_pw.jsp            -   아이디, 비밀번호 찾기 페이지(미구현)
+#
+
+#
 디렉토리 사용방법
 
 이 레파지토리를 fetch하여 본인의 git에 가져온다
