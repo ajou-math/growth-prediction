@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/login/login.dart';
 import 'package:mobile/page/current.dart';
 import 'package:mobile/page/currentBmi.dart';
 import 'package:mobile/page/exResult.dart';
@@ -23,7 +24,10 @@ class MyHome extends StatelessWidget {
         elevation: 0.0,
         actions: <Widget>[
           IconButton(
-            onPressed: () {}, //로그아웃창 넣을것
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => LoginSignupScreen()));
+            }, //로그아웃창 넣을것
             icon: const Icon(Icons.logout),
           )
         ],
@@ -33,11 +37,11 @@ class MyHome extends StatelessWidget {
           padding: EdgeInsets.zero,
           children: <Widget>[
             Container(
-              height: 80.0,
+              height: 130.0,
               child: const UserAccountsDrawerHeader(
                 //const 지워야할수도
-                accountName: Text('Temp name'),
-                accountEmail: Text('Temp email'),
+                accountName: Text('성명 : 윤기웅'),
+                accountEmail: Text('생년월일 : 980528'),
                 decoration: BoxDecoration(
                   color: Color.fromARGB(255, 18, 79, 130),
                   borderRadius: BorderRadius.only(

@@ -1,6 +1,6 @@
 # project name : growth-prediction
 
-current version : 4.28
+current version : 5.13
 
 #
 디렉토리 설명
@@ -63,3 +63,7 @@ second version
 
 git flow 추가
 #
+
+#
+version 5.13_기웅
+
