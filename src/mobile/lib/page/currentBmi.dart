@@ -35,7 +35,7 @@ class CurrentBmi extends StatelessWidget {
                 Text(
                   '당신의 BMI는 $bmi_text입니다',
                   style: GoogleFonts.lato(
-                    fontSize: 35.0,
+                    fontSize: 25.0,
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
                   ),
