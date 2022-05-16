@@ -17,7 +17,7 @@
 <body>
 <header>
 	<div class = "header_box">
-		<a href="index.jsp"><img src="img/logo.png" height = 100px></a>
+		<a href="index.jsp"><img src="/springboot/img/ShortLogo.png" height = "100px"></a>
 	</div>
 </header>
 <main class ="contents">

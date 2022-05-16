@@ -27,7 +27,7 @@
 <div class="contents">
 	<div class="main">
 		<div class="login_form">
-			<h1>BoneAge Prediction</h1>
+			<div class = "logo"><img width = "400px" src = "/springboot/img/ShortLogo.png"></div>
 			<form action="/springboot/login"  method = "post" id = "login" >
 				<ul type="none">
 				<li><input type="text" name="doctorid" placeholder="아이디(이메일)" autocomplete="off"  class="login_input" maxlength="20"></li>

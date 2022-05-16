@@ -1,1 +1,89 @@
-@charset "UTF-8";
+.select {
+    width : 400px;
+    background-color : #dadada;
+    float : left;
+ }
+ 
+ .work_space_box{
+    width : 680px;
+    background-color : #c1c1c1;
+    float : left;
+ }
+ 
+ .work_space{
+    width : 660px;
+    margin : 10px auto;
+    min-height : 500px;
+    background-color : blue;
+ }
+ 
+ .children_table {
+    border : 1px solid;
+    border-collapse : collapse;
+    width : 380px;
+    margin : 10px auto;
+    text-align : center;
+ }
+ 
+ tr, td{
+    border : 1px solid;
+ }
+ 
+ tr:nth-child(odd){
+    background-color : #e8e8e8;
+ }
+ 
+ tr:nth-child(even){
+    background-color : white;
+ }
+ .above_list{
+    margin : 10px;
+ }
+ 
+ .above_button{
+    width : 80px;
+    background-color : skyblue;
+    border : 1px solid;
+ }
+ 
+ .above_button:hover{
+    background-color : #b0def2;
+    
+ }
+ 
+ .above_button:active{
+    background-color : #80ffff;
+    
+ }
+ 
+ #image_upload, #registration{
+    margin : 10px;
+    display : none;
+    
+ }
+ 
+ .child_registration, .child_info_form{
+    display : block;
+    width : 400px;
+    height : 30px;
+    margin : 10px 0;
+    
+ }
+ 
+ .submit_button{
+    width : 100px;
+    height : 30px;
+    margin : 10px 0;
+ }
+ 
+ #bone_image_upload{
+    margin : 10px 0;
+ }
+ 
+ .form_list{
+    margin : 10px;
+ }
+ 
+ .last{
+    text-align : right;
+ }

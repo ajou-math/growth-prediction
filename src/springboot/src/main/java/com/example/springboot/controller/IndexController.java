@@ -50,11 +50,4 @@ public class IndexController {
 
         return "signin/main";
     }
-
-    @GetMapping("/test/test")
-    public String test() {
-
-        return "test/test";
-    }
-
 }
