@@ -314,7 +314,16 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                       Icons.arrow_forward,
                       color: Colors.white,
                     ),
-                    onTap: () => MyHome(),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return MyHome();
+                          },
+                        ),
+                      );
+                    },
                   ),
                 ),
               ),
