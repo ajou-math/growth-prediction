@@ -6,8 +6,8 @@
 	var signup_form = document.getElementById("signup");
 	var formData = new FormData(signup_form);
 	
-	var id = (String)(formData.get("doctor_id"));
-	var pw = (String)(formData.get("doctor_pw"));
+	var id = (String)(formData.get("doctorid"));
+	var pw = (String)(formData.get("doctorpw"));
 	var pw_check = (String)(formData.get("pw_check"));
 	
 	if ((id.length<5)||(id.length>20)){
@@ -37,11 +37,5 @@
 		return ;
 	}
 	
-	fetch("/index", {
-		method : "post",
-		body : formData
-	})
-	.then((response)=>response.json)
-	.catch(console.log("error"));
 	
 }
