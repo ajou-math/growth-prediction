@@ -23,6 +23,6 @@ public class Doctor {
     private String hospital;
     @Column(name = "doctor_phone_number", nullable = true)
     private String doctornumber;
-    @Column(name = "roles", nullable = true)
+    @Column(name = "role", nullable = true)
     private String role;
 }

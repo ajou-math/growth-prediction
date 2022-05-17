@@ -12,6 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 //import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class IndexController {
@@ -35,7 +37,7 @@ public class IndexController {
     @PostMapping("/signup")
     public String signup(Model model, Doctor doctor) {
 
-        doctor.setRole("D");
+        doctor.setRole("ROLE_USER");
         String rawPassword = doctor.getDoctorpw();
         String encPassword = bCryptPasswordEncoder.encode(rawPassword);
         doctor.setDoctorpw(encPassword);
@@ -49,5 +51,10 @@ public class IndexController {
     public String main() {
 
         return "signin/main";
+    }
+
+    @RequestMapping(value = "/error/403", method = RequestMethod.GET)
+    public String error() {
+        return "error/403";
     }
 }
