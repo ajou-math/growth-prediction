@@ -1,3 +1,9 @@
+/**
+ * 의사 검진 메인페이지 함수
+ */
+ 
+ 
+
 //새로운 아이 등록
 function new_child(){
 	document.getElementById("registration").style.display="block";
@@ -11,28 +17,20 @@ function new_child(){
 	var registration_form = document.getElementById("registration_form");
 	var formData = new FormData(registration_form);
 	
-	var child_id = (String)(formData.get("child_id"));
-	var parent_id = (String)(formData.get("parent_id"));
+	var childPhone = (String)(formData.get("childnumber"));
+	var parentPhone = (String)(formData.get("parentnumber"));
  
-	if ((child_id.length<5)||(child_id.length>20)){
-	   alert("잘못된 아이디입니다.");
-	   return false;
-	}
-	if ((parent_id.length<5)||(parent_id.length>20)){
-	   alert("잘못된 부모의 아이디입니다.");
-	   return false;
-	}
-	for (let i = 0; i < child_id.length ; i++){
-	   var ch = child_id[i];
-	   if ((ch < "a" || ch > "z") && (ch < "A" || ch > "Z") && (ch < "0" || ch > "9")){
-		  alert("아이디의 형식이 잘못되었습니다.");
+	for (let i = 0; i < childPhone.length ; i++){
+	   var ch = childPhone[i];
+	   if (ch < "0" || ch > "9"){
+		  alert("전화번호의 형식이 잘못되었습니다.");
 		  return false;
 	   }
 	}
-	for (let j = 0; j < parent_id.length ; j++){
-	   var ch = parent_id[j];
-	   if ((ch < "a" || ch > "z") && (ch < "A" || ch > "Z") && (ch < "0" || ch > "9")){
-		  alert("부모 아이디의 형식이 잘못되었습니다.");
+	for (let j = 0; j < parentPhone.length ; j++){
+	   var ch = parentPhone[j];
+	   if (ch < "0" || ch > "9"){
+		  alert("전화번호의 형식이 잘못되었습니다.");
 		  return false;
 	   }
 	}
@@ -63,4 +61,40 @@ function new_child(){
 	   return false;
 	}
  
+ }
+ 
+ //아이 테이블 내 검색
+ function child_saerch() {
+   var input, filter, table, tr, td, cell, i, j;
+   input = document.getElementById("child_search_input");
+   filter = input.value.toUpperCase();
+   table = document.getElementById("children_table");
+   tr = table.getElementsByTagName("tr");
+   for (i = 1; i < tr.length; i++) {
+	 tr[i].style.display = "none";
+   
+	 td = tr[i].getElementsByTagName("td");
+	 for (var j = 0; j < td.length; j++) {
+	   cell = tr[i].getElementsByTagName("td")[j];
+	   if (cell) {
+		 if (cell.innerHTML.toUpperCase().indexOf(filter) > -1) {
+		   tr[i].style.display = "";
+		   break;
+		 } 
+	   }
+	 }
+   }
+ }
+ 
+ 
+ //검색창 여닫기
+ function search(){
+	let input = document.getElementById("child_search_input");
+	if(input.style.display == "none"){
+	   input.style.display = "inline-block";
+	}
+	else{
+	   input.style.display = "none";
+	}
+	
  }

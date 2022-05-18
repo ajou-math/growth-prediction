@@ -37,7 +37,7 @@ public class IndexController {
     @PostMapping("/signup")
     public String signup(Model model, Doctor doctor) {
 
-        doctor.setRole("ROLE_USER");
+        doctor.setRole("ROLE_NONE");
         String rawPassword = doctor.getDoctorpw();
         String encPassword = bCryptPasswordEncoder.encode(rawPassword);
         doctor.setDoctorpw(encPassword);
@@ -45,12 +45,6 @@ public class IndexController {
         doctorRepository.save(doctor);
 
         return "redirect:/";
-    }
-
-    @GetMapping("/signin/main")
-    public String main() {
-
-        return "signin/main";
     }
 
     @RequestMapping(value = "/error/403", method = RequestMethod.GET)
