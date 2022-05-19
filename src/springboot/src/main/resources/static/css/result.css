@@ -1,0 +1,132 @@
+.main_contents{
+    flex-direction : column;
+    
+ }
+ 
+ #child_result_page{
+    display : block;
+ 
+ }
+ 
+ #child_privacy_page, #child_bone_page, #child_report_page{
+    display : none;
+ }
+ 
+ .result_page_box, .privacy_page_box, .report_page_box, .bone_page_box{
+    display : flex;
+    background-color : #dadada;
+ }
+ 
+ .report_page_box{
+    flex-direction : column;
+ }
+ .result_menu{
+    width : 100%;
+ }
+ .result_menu_button{
+    display : inline-block;
+    background-color : #dadada;
+    height : 30px;
+    width : 100px;
+    border : 0;
+    border-bottom : 1px solid black;
+ }
+ 
+ 
+ #show_result_button{
+    border-color : #dadada;
+ }
+ 
+ .doctor_recommandation{
+    margin : 10px 10px 10px 0;
+    width : 670px;
+    background-color : #c1c1c1;
+ }
+ 
+ .report_data{
+    width : 400px;
+ }
+ 
+ .result_table {
+    width : 380px;
+    margin : 10px auto;
+    
+ }
+ table{
+    border : 1px solid;
+    border-collapse : collapse;
+    text-align : center;
+    
+ }
+ tr, td{
+    border : 1px solid;
+ }
+ 
+ tr:nth-child(odd){
+    background-color : #e8e8e8;
+ }
+ 
+ tr:nth-child(even){
+    background-color : white;
+ }
+ 
+ .table_legend{
+    width : 100px;
+ }
+ 
+    
+ .recommandation_form{
+    width : 640px;
+    margin : 10px 15px;
+    
+ }
+ .form_list{
+    margin : 10px;
+ }
+ 
+ .doctor_form{
+    display : block;
+    width : 620px;
+    height : 40px;
+    margin : 10px 0;
+ }
+ 
+ .last{
+    text-align : right;
+ }
+ 
+ .submit_button{
+    width : 100px;
+    height : 30px;
+    margin : 10px 0;
+ }
+ 
+ .bone_image{
+    width : 1060px;
+    text-align : center;
+    margin : 10px;
+    background-color : #c1c1c1;
+ }
+ 
+ .textarea_box{
+    height : 100px;
+ }
+ 
+ .chart_div{
+    box-sizing : content-box;
+    width : 900px;
+    height : 400px;
+    margin : 15px auto;
+    border : 1px solid;
+    
+ }
+ 
+ .report_history{
+    width : 900px;
+    margin : 20px auto;
+ }
+ 
+ .privacy_table{
+    width : 900px;
+    margin : 20px auto;
+ }

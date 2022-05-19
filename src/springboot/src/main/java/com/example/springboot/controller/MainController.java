@@ -54,11 +54,18 @@ public class MainController {
 
         String crawPassword = child.getChildpw();
         String cencPassword = bCryptPasswordEncoder.encode(crawPassword);
+        // cencPassword = cencPassword.replace("$2y", "$2a");
+        // cencPassword = cencPassword.replace("$2a", "$2y"); 비밀번호 보안 변경
         child.setChildpw(cencPassword);
 
         childRepository.save(child);
 
         return "redirect:/signin/main";
+    }
+
+    @PostMapping("/signin/result")
+    public String result(Model model) {
+        return "signin/result";
     }
 
 }

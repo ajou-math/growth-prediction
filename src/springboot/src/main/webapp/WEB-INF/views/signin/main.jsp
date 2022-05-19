@@ -25,17 +25,7 @@
 <%-- JSTL 필요시 사용 @ taglib uri="http://java.sun.com/jstl/core" prefix="c" --%>
 </head>
 <body>
-
-   <%--
-   String doctor_id = (String)session.getAttribute("doctor_id");
-   
-   if (doctor_id == null){
-      response.sendRedirect("index.jsp");
-   }
---%>
-   <%
-   
-         
+   <%   
          List<Child> child = (List<Child>)request.getAttribute("child");
          %>
    <%
@@ -94,7 +84,7 @@
 
                   <li class="form_list"><input type="file" name="bone_image"
                      id="bone_image_upload" accept=".png" required></li>
-                  <li class="form_list last"><button class="submit_button">제출</button></li>
+                  <li class="form_list last"><button class="submit_button">검사</button></li>
                </ul>
             </form>
          </div>

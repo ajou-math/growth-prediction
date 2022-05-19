@@ -39,12 +39,6 @@
 						<div class="login_help">
 							<a href="/springboot/sign">회원가입</a>
 						</div>
-						<div class="login_help">
-							<a href="/springboot/find_id">아이디 찾기</a>
-						</div>
-						<div class="login_help">
-							<a href="/springboot/find_pw">비밀번호 찾기</a>
-						</div>
 					</div>
 				</li>
 				</ul>
