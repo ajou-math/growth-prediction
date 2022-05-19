@@ -87,3 +87,9 @@
  .last{
     text-align : right;
  }
+
+ #child_search_input{
+   width : 200px;
+   display : none;
+   height : 20px;
+}
