@@ -5,10 +5,10 @@
 <meta charset="UTF-8">
 <title>검진 결과</title>
 <!-- css file -->
-<link href="/springboot/css/common.css" rel="stylesheet" type="text/css">
-<link href="/springboot/css/result.css" rel="stylesheet" type="text/css">
+<link href="/growthprediction/css/common.css" rel="stylesheet" type="text/css">
+<link href="/growthprediction/css/result.css" rel="stylesheet" type="text/css">
 <!-- javascript file -->
-<script src="/springboot/js/result.js" type="text/javascript"></script>
+<script src="/growthprediction/js/result.js" type="text/javascript"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <!-- google gont Noto Sans KR -->
 <link rel="preconnect" href="https://fonts.googleapis.com">

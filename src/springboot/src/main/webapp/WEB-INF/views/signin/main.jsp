@@ -7,13 +7,13 @@
 <meta charset="UTF-8">
 <title>검진하기</title>
 <!-- css file -->
-<link href="/springboot/css/common.css" rel="stylesheet"
+<link href="/growthprediction/css/common.css" rel="stylesheet"
    type="text/css">
-<link href="/springboot/css/main.css" rel="stylesheet"
+<link href="/growthprediction/css/main.css" rel="stylesheet"
    type="text/css">
 
 <!-- javascript file -->
-<script src="/springboot/js/main.js" type="text/javascript"></script>
+<script src="/growthprediction/js/main.js" type="text/javascript"></script>
 
 <!-- google gont Noto Sans KR -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -70,7 +70,7 @@
       </div>
       <div class="work_space_box">
          <div id="image_upload">
-            <form action="/springboot/signin/result" method="post" onsubmit="return image_check()">
+            <form action="/growthprediction/signin/result" method="post" onsubmit="return image_check()">
                <ul>
                   <li class="form_list"><input type="hidden" name="child_id"
                      readonly id="selected_child_id"></li>
@@ -89,7 +89,7 @@
             </form>
          </div>
          <div id="registration">
-            <form action="/springboot/signin/client" method="post" onsubmit="return child_registration_check()" id="registration_form" autocomplete="off">
+            <form action="/growthprediction/signin/client" method="post" onsubmit="return child_registration_check()" id="registration_form" autocomplete="off">
                <ul>
                   <li class="form_list">아이 이름<input type="text" name="childname" placeholder="아이 이름" required class="child_registration"></li>
                   <li class="form_list">아이 전화번호('-'없이 숫자만 입력)<input type="text" name="childnumber" required placeholder="아이 전화번호" class="child_registration"></li>

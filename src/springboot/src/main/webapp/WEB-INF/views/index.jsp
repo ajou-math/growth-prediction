@@ -5,10 +5,10 @@
 <meta charset="UTF-8">
 <title>Login</title>
 <!-- css file -->
-<link href="/springboot/css/index.css" rel="stylesheet" type="text/css">
-<link href="/springboot/css/common.css" rel="stylesheet" type="text/css">
+<link href="/growthprediction/css/index.css" rel="stylesheet" type="text/css">
+<link href="/growthprediction/css/common.css" rel="stylesheet" type="text/css">
 <!-- javascript file -->
-<script src="/springboot/js/login.js" type="text/javascript" ></script>
+<script src="/growthprediction/js/login.js" type="text/javascript" ></script>
 <!-- google gont Noto Sans KR -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,8 +27,8 @@
 <div class="contents">
 	<div class="main">
 		<div class="login_form">
-			<div class = "logo"><img width = "400px" src = "/springboot/img/ShortLogo.png"></div>
-			<form action="/springboot/login"  method = "post" id = "login" >
+			<div class = "logo"><img width = "400px" src = "/growthprediction/img/ShortLogo.png"></div>
+			<form action="/growthprediction/login"  method = "post" id = "login" >
 				<ul type="none">
 				<li><input type="text" name="doctorid" placeholder="아이디(이메일)" autocomplete="off"  class="login_input" maxlength="20"></li>
 				<li><input type="password" name="doctorpw" placeholder="비밀번호" autocomplete="off" class="login_input" maxlength="20"></li>
@@ -37,7 +37,7 @@
 				<li>
 					<div class="under_login">
 						<div class="login_help">
-							<a href="/springboot/sign">회원가입</a>
+							<a href="/growthprediction/sign">회원가입</a>
 						</div>
 					</div>
 				</li>

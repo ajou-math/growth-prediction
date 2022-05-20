@@ -24,7 +24,7 @@ public class IndexController {
     @Autowired
     public BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    @GetMapping({ "", "/" })
+    @GetMapping("/")
     public String index() {
         return "index";
     }
@@ -51,4 +51,5 @@ public class IndexController {
     public String error() {
         return "error/403";
     }
+
 }
