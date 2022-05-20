@@ -31,8 +31,8 @@ public class ChildApiController {
     @Autowired
     public BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    @GetMapping("/child-login")
-    public String firstlogin(String childid, String childpw) {
+    @PostMapping("/child-login")
+    public String firstlogin(@RequestBody String childid, @RequestBody String childpw) {
 
         Child child = new Child();
         child = childRepository.findByChildid(childid);
