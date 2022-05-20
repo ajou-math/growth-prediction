@@ -5,6 +5,7 @@ import java.util.List;
 import com.example.springboot.domain.Child;
 import com.example.springboot.domain.Privacy;
 import com.example.springboot.domain.Recommend;
+import com.example.springboot.domain.dto.AppLogin;
 import com.example.springboot.repository.ChildRepository;
 import com.example.springboot.repository.PrivacyRepository;
 import com.example.springboot.repository.RecommendRepository;
@@ -32,17 +33,17 @@ public class ChildApiController {
     public BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @PostMapping("/child-login")
-    public String firstlogin(@RequestBody String childid, @RequestBody String childpw) {
+    public String firstlogin(@RequestBody AppLogin appLogin) {
 
         Child child = new Child();
-        child = childRepository.findByChildid(childid);
+        child = childRepository.findByChildid(appLogin.getChildid());
         if (child == null) {
             return "iderror";
         }
 
         if (bCryptPasswordEncoder.matches(child.getChildnumber(), child.getChildpw())) {
             return "changepw";
-        } else if (bCryptPasswordEncoder.matches(childpw, child.getChildpw())) {
+        } else if (bCryptPasswordEncoder.matches(appLogin.getChildpw(), child.getChildpw())) {
             return "login";
         }
 
@@ -50,13 +51,14 @@ public class ChildApiController {
     }
 
     @PostMapping("/child-changepw")
-    public void changepw(@RequestBody String childid, @RequestBody String childpw) {
+    public void changepw(@RequestBody AppLogin appLogin) {
         Child child = new Child();
-        child = childRepository.findByChildid(childid);
+        child = childRepository.findByChildid(appLogin.getChildid());
 
-        String rawPassword = childpw;
+        String rawPassword = appLogin.getChildpw();
         String encPassword = bCryptPasswordEncoder.encode(rawPassword);
         child.setChildpw(encPassword);
+        childRepository.save(child);
     }
 
     @GetMapping("/child/{childid}")
