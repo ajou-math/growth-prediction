@@ -19,8 +19,6 @@ public class Child {
     private String childpw;
     @Column(name = "child_name", nullable = true)
     private String childname;
-    @Column(name = "child_email", nullable = true)
-    private String childemail;
     @Column(name = "child_phone_number", nullable = true)
     private String childnumber;
     @Column(name = "child_registration_date", nullable = true)

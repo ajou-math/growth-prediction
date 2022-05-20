@@ -5,7 +5,9 @@ import java.util.Date;
 import java.util.List;
 
 import com.example.springboot.domain.Child;
+import com.example.springboot.domain.Privacy;
 import com.example.springboot.repository.ChildRepository;
+import com.example.springboot.repository.PrivacyRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -19,6 +21,9 @@ public class MainController {
 
     @Autowired
     private ChildRepository childRepository;
+
+    @Autowired
+    private PrivacyRepository privacyRepository;
 
     @Autowired
     public BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -41,7 +46,6 @@ public class MainController {
 
         child.setChildname(childname);
         child.setChildnumber(childnumber);
-        child.setChildemail(null);
         child.setChildid(childname + childnumber.substring(childnumber.length() - 4, childnumber.length()));
         child.setChildpw(childnumber);
         child.setChildparentname(parentname);
@@ -64,7 +68,23 @@ public class MainController {
     }
 
     @PostMapping("/signin/result")
-    public String result(Model model) {
+    public String result(Model model,
+            String privacychildid, String privacygender, String privacybirth, float privacytall, int privacyweight) {
+
+        Privacy privacy = new Privacy();
+        privacy.setPrivacychildid(privacychildid);
+        privacy.setPrivacygender(privacygender);
+        privacy.setPrivacybirth(privacybirth);
+        privacy.setPrivacytall(privacytall);
+        privacy.setPrivacyweight(privacyweight);
+        privacy.setPrivacybornage(0);
+        privacy.setPrivacypredicttall(0);
+
+        privacyRepository.save(privacy);
+
+        model.addAttribute("privacy", privacy);
+        model.addAttribute("privacychildid", privacychildid);
+
         return "signin/result";
     }
 
