@@ -2,7 +2,6 @@ package com.example.springboot.domain.dto;
 
 public class AppLogin {
     private String childid;
-    private String childbirth;
     private String childpw;
 
     public String getChildid() {
@@ -11,14 +10,6 @@ public class AppLogin {
 
     public void setChildid(String childid) {
         this.childid = childid;
-    }
-
-    public String getChildbirth() {
-        return childbirth;
-    }
-
-    public void setchildbirth(String childbirth) {
-        this.childbirth = childbirth;
     }
 
     public String getChildpw() {
@@ -34,9 +25,6 @@ public class AppLogin {
         return "AppLogin {"
                 + "childid='"
                 + childid
-                + '\''
-                + ", childbirth='"
-                + childbirth
                 + '\''
                 + ", childpw='"
                 + childpw

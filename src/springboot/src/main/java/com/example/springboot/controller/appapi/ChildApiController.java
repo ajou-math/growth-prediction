@@ -38,12 +38,8 @@ public class ChildApiController {
         Child child = new Child();
         child = childRepository.findByChildid(appLogin.getChildid());
 
-        Privacy privacy = privacyRepository.findByPrivacychildid(appLogin.getChildid());
         if (child == null) {
             return "iderror";
-        }
-        if (!privacy.getPrivacybirth().equals(appLogin.getChildbirth())) {
-            return "birtherror";
         }
 
         if (child.getChildnumber().equals(appLogin.getChildpw())) {
