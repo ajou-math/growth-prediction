@@ -42,7 +42,7 @@ public class ChildApiController {
             return "iderror";
         }
 
-        if (child.getChildnumber().equals(appLogin.getChildpw())) {
+        if (child.getChildnumber().equals(appLogin.getChildpw()) && bCryptPasswordEncoder.matches(appLogin.getChildpw(), child.getChildpw())) {
             return "changepw";
         } else if (bCryptPasswordEncoder.matches(appLogin.getChildpw(), child.getChildpw())) {
             return "login";
@@ -59,6 +59,9 @@ public class ChildApiController {
         String rawPassword = appLogin.getChildpw();
         String encPassword = bCryptPasswordEncoder.encode(rawPassword);
         child.setChildpw(encPassword);
+
+        System.out.println("----------change password----------");
+
         childRepository.save(child);
     }
 
