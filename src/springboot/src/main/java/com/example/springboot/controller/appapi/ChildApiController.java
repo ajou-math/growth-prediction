@@ -42,7 +42,8 @@ public class ChildApiController {
             return "iderror";
         }
 
-        if (child.getChildnumber().equals(appLogin.getChildpw()) && bCryptPasswordEncoder.matches(appLogin.getChildpw(), child.getChildpw())) {
+        if (child.getChildnumber().equals(appLogin.getChildpw())
+                && bCryptPasswordEncoder.matches(appLogin.getChildpw(), child.getChildpw())) {
             return "changepw";
         } else if (bCryptPasswordEncoder.matches(appLogin.getChildpw(), child.getChildpw())) {
             return "login";
@@ -53,14 +54,14 @@ public class ChildApiController {
 
     @PostMapping("/child-changepw")
     public void changepw(@RequestBody AppLogin appLogin) {
+        System.out.println("----------change password--1--------");
+        System.out.println(appLogin);
         Child child = new Child();
         child = childRepository.findByChildid(appLogin.getChildid());
 
         String rawPassword = appLogin.getChildpw();
         String encPassword = bCryptPasswordEncoder.encode(rawPassword);
         child.setChildpw(encPassword);
-
-        System.out.println("----------change password----------");
 
         childRepository.save(child);
     }
