@@ -100,9 +100,7 @@
       ko_gender = "여";
    }
  */
-    String name = "가나다";
-    String ko_gender = "남";
-   double bone_age = 11.1;
+
    %>
    <header>
       <%@ include file="header.jsp"%>
@@ -128,15 +126,15 @@
                <table class="result_table">
                   <tr>
                      <td class = "table_legend">이름</td>
-                     <td><%=name%></td>
+                     <td>${childname}</td>
                   </tr>
                   <tr>
                      <td>성별</td>
-                     <td><%=ko_gender%></td>
+                     <td>${privacy.getPrivacygender()}</td>
                   </tr>
                   <tr>
                      <td>골연령</td>
-                     <td><%=bone_age%>세</td>
+                     <td>${privacy.getPrivacybornage()}세</td>
                   </tr>
                   <%-- <tr>
                      <td>역연령</td>
@@ -184,7 +182,7 @@
       <div id="child_bone_page">
          <div class="bone_page_box">
             <div class="bone_image">
-               <img src="img/1377.png" width="1060px">
+               <img src="/growthprediction/img/xray/${report.getReportxray()}" width="1060px">
             </div>
          </div>
       </div>

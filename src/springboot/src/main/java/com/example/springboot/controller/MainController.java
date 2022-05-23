@@ -4,12 +4,12 @@ import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
+import com.example.springboot.config.auth.PrincipleDetails;
 import com.example.springboot.domain.Child;
-import com.example.springboot.domain.Privacy;
 import com.example.springboot.repository.ChildRepository;
-import com.example.springboot.repository.PrivacyRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,15 +23,18 @@ public class MainController {
     private ChildRepository childRepository;
 
     @Autowired
-    private PrivacyRepository privacyRepository;
-
-    @Autowired
     public BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @GetMapping("/signin/main")
     public String main(Model model) {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        PrincipleDetails doctorDetails = (PrincipleDetails) principal;
+
+        String doctorid = doctorDetails.getUsername();
         List<Child> child = childRepository.findAll();
+
         model.addAttribute("child", child);
+        model.addAttribute("doctorid", doctorid);
         return "signin/main";
     }
 
@@ -41,8 +44,6 @@ public class MainController {
             String parentname, String parentnumber) {
 
         Child child = new Child();
-
-        System.out.println("IN signin/client");
 
         child.setChildname(childname);
         child.setChildnumber(childnumber);
@@ -65,27 +66,6 @@ public class MainController {
         childRepository.save(child);
 
         return "redirect:/signin/main";
-    }
-
-    @PostMapping("/signin/result")
-    public String result(Model model,
-            String privacychildid, String privacygender, String privacybirth, float privacytall, int privacyweight) {
-
-        Privacy privacy = new Privacy();
-        privacy.setPrivacychildid(privacychildid);
-        privacy.setPrivacygender(privacygender);
-        privacy.setPrivacybirth(privacybirth);
-        privacy.setPrivacytall(privacytall);
-        privacy.setPrivacyweight(privacyweight);
-        privacy.setPrivacybornage(0);
-        privacy.setPrivacypredicttall(0);
-
-        privacyRepository.save(privacy);
-
-        model.addAttribute("privacy", privacy);
-        model.addAttribute("privacychildid", privacychildid);
-
-        return "signin/result";
     }
 
 }

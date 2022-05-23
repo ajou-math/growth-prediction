@@ -31,6 +31,6 @@ public class Report {
     @Column(name = "report_date", nullable = true)
     private Timestamp reportdate;
     @Column(name = "report_xray", nullable = true)
-    private int reportxray;
+    private String reportxray;
 
 }

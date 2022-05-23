@@ -54,8 +54,6 @@ public class ChildApiController {
 
     @PostMapping("/child-changepw")
     public void changepw(@RequestBody AppLogin appLogin) {
-        System.out.println("----------change password--1--------");
-        System.out.println(appLogin);
         Child child = new Child();
         child = childRepository.findByChildid(appLogin.getChildid());
 
@@ -97,17 +95,6 @@ public class ChildApiController {
         List<Recommend> recommend = recommendRepository.findAllByRecommendchildid(childid);
 
         return recommend;
-    }
-
-    @GetMapping("/child/{childid}/childpwcheck")
-    public boolean childpwcheck(@PathVariable("childid") String childid, String childpw) {
-        Child child = new Child();
-        child = childRepository.findByChildid(childid);
-        if (bCryptPasswordEncoder.matches(childpw, child.getChildpw())) {
-            return true;
-        }
-
-        return false;
     }
 
 }
