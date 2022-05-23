@@ -66,7 +66,6 @@ public class ChildApiController {
     public Child child(@PathVariable("childid") String childid) {
         Child child = new Child();
         child = childRepository.findByChildid(childid);
-        System.out.println(child);
 
         return child;
     }
@@ -75,18 +74,36 @@ public class ChildApiController {
     public List<Privacy> privacy(@PathVariable("childid") String childid) {
 
         List<Privacy> privacy = privacyRepository.findAllByPrivacychildid(childid);
-        System.out.println(privacy);
 
         return privacy;
+    }
+
+    @GetMapping("/child/{childid}/privacycount")
+    public int privacycount(@PathVariable("childid") String childid) {
+
+        List<Privacy> privacy = privacyRepository.findAllByPrivacychildid(childid);
+        int count = privacy.size();
+
+        return count;
     }
 
     @GetMapping("/child/{childid}/recommend")
     public List<Recommend> recommend(@PathVariable("childid") String childid) {
 
         List<Recommend> recommend = recommendRepository.findAllByRecommendchildid(childid);
-        System.out.println(recommend);
 
         return recommend;
+    }
+
+    @GetMapping("/child/{childid}/childpwcheck")
+    public boolean childpwcheck(@PathVariable("childid") String childid, String childpw) {
+        Child child = new Child();
+        child = childRepository.findByChildid(childid);
+        if (bCryptPasswordEncoder.matches(childpw, child.getChildpw())) {
+            return true;
+        }
+
+        return false;
     }
 
 }
