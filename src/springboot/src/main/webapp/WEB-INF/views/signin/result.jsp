@@ -16,6 +16,10 @@
 <link
    href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
    rel="stylesheet">
+   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+   
+<link rel="shortcut icon" href="/favicon.ico" type="image/png">
+<link rel="icon" href="/favicon.ico" type="image/png">
 </head>
 <body>
 <script type="text/javascript">
@@ -165,8 +169,10 @@
             </div>
             <div class="doctor_recommandation">
                <!--  의사 검진(추천 정보 입력)  -->
-               <form action = "main.jsp" method = "post" class = "recommandation_form">
+               <form action = "/growthprediction/signin/recommend" method = "post" class = "recommandation_form">
                   <ul>
+                     <li class="form_list"><input type="hidden" class="doctor_form" value="${report.getReportchildid()}"></li>
+                     <li class="form_list"><input type="hidden" class="doctor_form" value="${report.getReportdoctorid()}"></li>
                      <li class="form_list">걸음걸이 입력<input type="text" class="doctor_form"></li>
                      <li class="form_list">운동량 입력<input type="text" class="doctor_form"></li>
                      <li class="form_list">수면 시간 입력<input type="text" class="doctor_form"></li>
@@ -182,7 +188,8 @@
       <div id="child_bone_page">
          <div class="bone_page_box">
             <div class="bone_image">
-               <img src="/growthprediction/img/xray/${report.getReportxray()}" width="1060px">
+               <img src="${repath}" width="1060px">
+               <!-- /growthprediction/img/xray/sample.png -->
             </div>
          </div>
       </div>
