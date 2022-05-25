@@ -5,7 +5,7 @@ import java.util.List;
 import com.example.springboot.domain.Child;
 import com.example.springboot.domain.Privacy;
 import com.example.springboot.domain.Recommend;
-import com.example.springboot.domain.dto.AppLogin;
+import com.example.springboot.domain.need.AppLogin;
 import com.example.springboot.repository.ChildRepository;
 import com.example.springboot.repository.PrivacyRepository;
 import com.example.springboot.repository.RecommendRepository;

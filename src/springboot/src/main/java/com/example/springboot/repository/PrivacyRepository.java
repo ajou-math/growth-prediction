@@ -11,4 +11,5 @@ public interface PrivacyRepository extends JpaRepository<Privacy, Integer> {
     public List<Privacy> findAllByPrivacychildid(String privacychildid);
 
     public Privacy findByPrivacychildid(String privacychildid);
+
 }

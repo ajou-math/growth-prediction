@@ -4,12 +4,13 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
 
 import com.example.springboot.domain.Privacy;
 import com.example.springboot.domain.Recommend;
 import com.example.springboot.domain.Report;
-import com.example.springboot.domain.dto.ResultDTO;
-import com.example.springboot.repository.ChildRepository;
+import com.example.springboot.domain.need.AgeService;
+import com.example.springboot.domain.need.ResultDTO;
 import com.example.springboot.repository.PrivacyRepository;
 import com.example.springboot.repository.RecommendRepository;
 import com.example.springboot.repository.ReportRepository;
@@ -23,8 +24,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class ReportController {
-    @Autowired
-    private ChildRepository childRepository;
 
     @Autowired
     private ReportRepository reportRepository;
@@ -90,13 +89,24 @@ public class ReportController {
         long time = date.getTime();
         Timestamp ts = new Timestamp(time);
         report.setReportdate(ts);
+        privacy.setPrivacyenterday(ts);
 
         // 여기에 파이썬이랑 연동하는 키
+
+        AgeService as = new AgeService();
+        int age = as.yy(privacy);
+
         String repath = "/growthprediction/img/xray/" + report.getReportxray();
         model.addAttribute("privacy", privacy);
         model.addAttribute("repath", repath);
         model.addAttribute("childname", resultDTO.getChildname());
-        model.addAttribute("report", report);
+
+        List<Privacy> privacylist = privacyRepository.findAllByPrivacychildid(privacy.getPrivacychildid());
+        List<Report> reportlist = reportRepository.findAllByReportchildid(privacy.getPrivacychildid());
+        model.addAttribute("privacylist", privacylist);
+        System.out.println(privacylist);
+        model.addAttribute("reportlist", reportlist);
+        model.addAttribute("currentage", age);
 
         // reportRepository.save(report);
         // privacyRepository.save(privacy);

@@ -23,7 +23,7 @@ public class Privacy {
     @Column(name = "privacy_gender", nullable = true)
     private String privacygender;
     @Column(name = "privacy_birth", nullable = true)
-    private String privacybirth; // 19980921
+    private String privacybirth; // 980921
     @Column(name = "privacy_tall", nullable = true)
     private float privacytall;
     @Column(name = "privacy_weight", nullable = true)

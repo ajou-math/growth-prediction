@@ -1,4 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.*"%>
+<%@ page import="com.example.springboot.domain.Privacy"%>
+<%@ page import="com.example.springboot.domain.need.AgeService"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,12 +25,13 @@
 <link rel="icon" href="/favicon.ico" type="image/png">
 </head>
 <body>
+<% List<Privacy> privacylist = (List<Privacy>) request.getAttribute("privacylist"); %>
+<% AgeService as = new AgeService();%>
 <script type="text/javascript">
 
 <%!int[] arr1 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
    double[] arr2 = {1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7, 8.8, 9.9, 10.10, 11.11, 12.12};
    int[] arr3 = {3, 1, 4, 1, 5, 9, 6, 5, 3, 5, 1, 2};%>
-
    google.charts.load('current', {
       'packages' : [ 'line', 'corechart' ]
    });
@@ -38,12 +42,13 @@
       var chartDiv = document.getElementById('boneage_chart_div');
       var data = new google.visualization.DataTable();
       data.addColumn('number', 'Month');
-      data.addColumn('number', "골연령");
-      data.addColumn('number', "역연령");
+      data.addColumn('number', "키");
+      data.addColumn('number', "예측 키");
 
       data.addRows([
-         <%for (int i = 0; i < arr1.length; i++) {%>
-         [<%=arr1[i]%>   ,<%=arr2[i]%>   ,<%=arr3[i]%>   ],
+         <%for (Privacy ptall : privacylist) {%>
+         <% String ptallday = as.yyyyMMdd(ptall);%>
+         [<%=1%>   ,<%=ptall.getPrivacytall()%>   ,<%=ptall.getPrivacypredicttall()%>   ],
          <%}%>
       ]);
 
@@ -53,7 +58,7 @@
          },
          width : 900,
          height : 400,
-         vAxis: { title: "나이" },
+         vAxis: { title: "키" },
          hAxis : {title: "날짜"},
       };
 
@@ -66,12 +71,14 @@
       var chartDiv = document.getElementById('height_chart_div');
       var data = new google.visualization.DataTable();
       data.addColumn('number', 'Month');
-      data.addColumn('number', "키");
-      data.addColumn('number', "예측키");
+      data.addColumn('number', "역연령");
+      data.addColumn('number', "골연령");
 
       data.addRows([
-         <%for (int i = 0; i < arr1.length; i++) {%>
-         [<%=arr1[i]%>   ,<%=arr2[i]%>+2   ,<%=arr3[i]%>*2   ],
+         <%for (Privacy pboneage : privacylist) {%>
+         <% int chartage = as.yy(pboneage);%>
+         <% String pboneageday = as.yyyyMMdd(pboneage);%>
+         [<%=pboneageday%>   ,<%=chartage%>   ,<%=pboneage.getPrivacybornage()%>   ],
          <%}%>
       ]);
 
@@ -140,31 +147,23 @@
                      <td>골연령</td>
                      <td>${privacy.getPrivacybornage()}세</td>
                   </tr>
-                  <%-- <tr>
+                  <tr>
                      <td>역연령</td>
-                     <td>역연령 수치</td>
+                     <td>${currentage}세</td>
                   </tr>
                   
                   <tr>
-                     <td>예측키</td>
                      <td>예측 키</td>
+                     <td>${privacy.getPrivacypredicttall()}cm</td>
                   </tr>
                   <tr>
                      <td>키</td>
-                     <td>키</td>
+                     <td>${privacy.getPrivacytall()}cm</td>
                   </tr>
                   <tr>
                      <td>체중</td>
-                     <td>체중</td>
+                     <td>${privacy.getPrivacyweight()}kg</td>
                   </tr>
-                  <tr>
-                     <td>BMI</td>
-                     <td>BMI</td>
-                  </tr>
-                  <tr>
-                     <td>예측키</td>
-                     <td>예측 키</td>
-                  </tr> --%>
                </table>
             </div>
             <div class="doctor_recommandation">
@@ -213,10 +212,14 @@
             <div id = "boneage_chart_div" class = "chart_div"></div>
             <div id = "height_chart_div" class = "chart_div"></div>
             <table class = "report_history">
-            <tr><td>날짜</td><td>골연령</td><td>역연령</td><td>키</td><td>예측키</td><td>사진</td></tr>
-            <%-- <%for ( report before : reports){ %>
-            <tr><td><%=before.date%></td><td><%=before.boneage%></td><td><%=before.age%></td><td><%before.height%></td><td><%=before.predheight%></td><td>사진보기</td></tr>
-            <%} %> --%>
+            <tr><td>날짜</td><td>골연령</td><td>역연령</td><td>키</td><td>예측키</td></tr>
+            <% for ( Privacy before : privacylist){ %>
+            <% int currentage = as.yy(before);%>
+            <tr>
+               <td><%=before.getPrivacyenterday()%></td><td><%=before.getPrivacybornage()%></td><td><%=currentage%></td>
+               <td><%=before.getPrivacytall()%></td><td><%=before.getPrivacypredicttall()%></td>
+            </tr>
+            <%} %>
             </table>
          </div>
       </div>
