@@ -20,7 +20,7 @@ public class AgeService {
     }
 
     public String yyyyMMdd(Privacy privacy) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
         String result = sdf.format(privacy.getPrivacyenterday());
 
         return result;

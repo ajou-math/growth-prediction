@@ -41,14 +41,24 @@
    function drawBoneAgeChart() {
       var chartDiv = document.getElementById('boneage_chart_div');
       var data = new google.visualization.DataTable();
-      data.addColumn('number', 'Month');
+      data.addColumn('date', 'Month');
       data.addColumn('number', "키");
       data.addColumn('number', "예측 키");
 
+      var dayList = [];
+      <%for (Privacy ptall : privacylist) {%>
+      <% String ptallday = as.yyyyMMdd(ptall);%>
+         dayList.push((String)(<%=ptallday%>));
+         
+      <%}%>
       data.addRows([
-         <%for (Privacy ptall : privacylist) {%>
-         <% String ptallday = as.yyyyMMdd(ptall);%>
-         [<%=1%>   ,<%=ptall.getPrivacytall()%>   ,<%=ptall.getPrivacypredicttall()%>   ],
+         <%for (int i = 0 ; i < privacylist.size(); i++)  {%> // Privacy ptall : privacylist)
+        <%-- String ptallday = as.yyyyMMdd(ptall);--%>
+         //var year = <%--=ptallday--%>.substr()
+         
+         [new Date(dayList[<%=i%>].substr(0,4), dayList[<%=i%>].substr(4,2), dayList[<%=i%>].substr(6,2))   ,
+         <%=privacylist.get(i).getPrivacytall()%>   ,
+         <%=privacylist.get(i).getPrivacypredicttall()%>   ],
          <%}%>
       ]);
 
@@ -70,15 +80,24 @@
    function drawPredHeightChart() {
       var chartDiv = document.getElementById('height_chart_div');
       var data = new google.visualization.DataTable();
-      data.addColumn('number', 'Month');
+      data.addColumn('date', 'Month');
       data.addColumn('number', "역연령");
       data.addColumn('number', "골연령");
 
+      var dayList=[];
+
+      <%for (Privacy ptall : privacylist) {%>
+      <% String ptallday = as.yyyyMMdd(ptall);%>
+         dayList.push((String)(<%=ptallday%>));
+         
+      <%}%>
+      
       data.addRows([
-         <%for (Privacy pboneage : privacylist) {%>
-         <% int chartage = as.yy(pboneage);%>
-         <% String pboneageday = as.yyyyMMdd(pboneage);%>
-         [<%=pboneageday%>   ,<%=chartage%>   ,<%=pboneage.getPrivacybornage()%>   ],
+         <%for (int i = 0 ; i < privacylist.size(); i++)  {%> 
+         <% int chartage = as.yy(privacylist.get(i));%>
+         [new Date(dayList[<%=i%>].substr(0,4), dayList[<%=i%>].substr(4,2), dayList[<%=i%>].substr(6,2))   ,
+         <%=chartage%>   ,
+         <%=privacylist.get(i).getPrivacybornage()%>   ],
          <%}%>
       ]);
 

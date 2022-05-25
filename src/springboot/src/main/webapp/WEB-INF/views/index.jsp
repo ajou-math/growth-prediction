@@ -28,11 +28,11 @@
 	<div class="main">
 		<div class="login_form">
 			<div class = "logo"><img width = "400px" src = "/growthprediction/img/ShortLogo.png"></div>
-			<form action="/growthprediction/login"  method = "post" id = "login" >
+			<form action="/growthprediction/login"  method = "post" id = "login" onsubmit="return login_check()">
 				<ul type="none">
 				<li><input type="text" name="doctorid" placeholder="아이디(이메일)" autocomplete="off"  class="login_input" maxlength="20"></li>
 				<li><input type="password" name="doctorpw" placeholder="비밀번호" autocomplete="off" class="login_input" maxlength="20"></li>
-				<li><button type="submit" class="login_button" onclick="login_check()">로그인</button></li>
+				<li><button type="submit" class="login_button">로그인</button></li>
 			</form>
 				<li>
 					<div class="under_login">
