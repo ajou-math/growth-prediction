@@ -171,8 +171,8 @@
                <form action = "/growthprediction/signin/recommend" method = "post" class = "recommandation_form">
                   <ul>
                      <% Report report = (Report) request.getAttribute("report");%>
-                     <li class="form_list"><input type="text" class="doctor_form" value="<%=report.getReportchildid()%>" name = "recommendchildid"></li>
-                     <li class="form_list"><input type="text" class="doctor_form" value="<%=report.getReportdoctorid()%>" name = "recommenddoctorid"></li>
+                     <li class="form_list"><input type="hidden" class="doctor_form" value="<%=report.getReportchildid()%>" name = "recommendchildid"></li>
+                     <li class="form_list"><input type="hidden" class="doctor_form" value="<%=report.getReportdoctorid()%>" name = "recommenddoctorid"></li>
                      <li class="form_list">걸음걸이 입력<input type="text" class="doctor_form" name = "recommendwalk"></li>
                      <li class="form_list">운동량 입력<input type="text" class="doctor_form" name = "recommendworkout"></li>
                      <li class="form_list">수면 시간 입력<input type="text" class="doctor_form" name = "recommendsleep"></li>
