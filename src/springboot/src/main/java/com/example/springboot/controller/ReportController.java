@@ -1,12 +1,9 @@
 package com.example.springboot.controller;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.Timestamp;
 import java.util.Base64;
@@ -24,10 +21,8 @@ import com.example.springboot.repository.ImageRepository;
 import com.example.springboot.repository.PrivacyRepository;
 import com.example.springboot.repository.RecommendRepository;
 import com.example.springboot.repository.ReportRepository;
-import com.fasterxml.jackson.annotation.JsonKey;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mysql.cj.jdbc.Blob;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -58,12 +53,12 @@ public class ReportController {
 
         Report report = new Report();
         Date date = new Date();
-        StringBuilder sb = new StringBuilder();
-        String url = new String();
+        // StringBuilder sb = new StringBuilder();
+        // String url = new String();
         Image image = new Image();
 
         // blob----------------------------------------------------------------------------
-        byte[] bytes = file.getBytes();
+        // byte[] bytes = file.getBytes();
         image.setFilename(file.getOriginalFilename());
         try {
             image.setImage(Base64.getEncoder().encodeToString(file.getBytes()));
@@ -141,7 +136,7 @@ public class ReportController {
         }
         String jsonlink = "http://127.0.0.1:5000/tospring/" + image.getFilename() + "/" + male + "/"
                 + resultDTO.getChildheight();
-        URL jsonurl = new URL("http://127.0.0.1:5000/tospring/a/b/c");
+        URL jsonurl = new URL(jsonlink);
         HttpURLConnection conn = (HttpURLConnection) jsonurl.openConnection();
         StringBuffer stb = new StringBuffer();
         ObjectMapper mapper = new ObjectMapper();
@@ -164,7 +159,7 @@ public class ReportController {
                 new TypeReference<Map<String, Object>>() {
                 });
 
-        // System.out.println("list : " + listMap);
+        System.out.println("list : " + listMap);
         // System.out.println("A : " + listMap.get("A"));
         // System.out.println("B : " + listMap.get("B"));
         // System.out.println("C : " + listMap.get("C"));
@@ -185,8 +180,8 @@ public class ReportController {
         model.addAttribute("reportlist", reportlist);
         model.addAttribute("currentage", age);
 
-        // reportRepository.save(report);
-        // privacyRepository.save(privacy);
+        reportRepository.save(report);
+        privacyRepository.save(privacy);
 
         return "signin/result";
     }
