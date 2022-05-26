@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*"%>
 <%@ page import="com.example.springboot.domain.Privacy"%>
+<%@ page import="com.example.springboot.domain.Report"%>
 <%@ page import="com.example.springboot.domain.need.AgeService"%>
 <!DOCTYPE html>
 <html>
@@ -169,8 +170,9 @@
                <!--  의사 검진(추천 정보 입력)  -->
                <form action = "/growthprediction/signin/recommend" method = "post" class = "recommandation_form">
                   <ul>
-                     <li class="form_list"><input type="hidden" class="doctor_form" value="${report.getReportchildid()}" name = "recommendchildid"></li>
-                     <li class="form_list"><input type="hidden" class="doctor_form" value="${report.getReportdoctorid()}" name = "recommenddoctorid"></li>
+                     <% Report report = (Report) request.getAttribute("report");%>
+                     <li class="form_list"><input type="text" class="doctor_form" value="<%=report.getReportchildid()%>" name = "recommendchildid"></li>
+                     <li class="form_list"><input type="text" class="doctor_form" value="<%=report.getReportdoctorid()%>" name = "recommenddoctorid"></li>
                      <li class="form_list">걸음걸이 입력<input type="text" class="doctor_form" name = "recommendwalk"></li>
                      <li class="form_list">운동량 입력<input type="text" class="doctor_form" name = "recommendworkout"></li>
                      <li class="form_list">수면 시간 입력<input type="text" class="doctor_form" name = "recommendsleep"></li>

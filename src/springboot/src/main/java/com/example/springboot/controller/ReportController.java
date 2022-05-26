@@ -172,9 +172,8 @@ public class ReportController {
         int age = as.yy(privacy);
         // String repath = "/growthprediction/img/xray/" + report.getReportxray();
         model.addAttribute("privacy", privacy);
-        // model.addAttribute("repath", repath);
-        model.addAttribute("reportxray", report.getReportxray());
         model.addAttribute("childname", resultDTO.getChildname());
+        model.addAttribute("report", report);
 
         List<Privacy> privacylist = privacyRepository.findAllByPrivacychildid(privacy.getPrivacychildid());
         List<Report> reportlist = reportRepository.findAllByReportchildid(privacy.getPrivacychildid());
