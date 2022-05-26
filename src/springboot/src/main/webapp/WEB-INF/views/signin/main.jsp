@@ -48,7 +48,6 @@
                %>
 
                <tr class="children_table_body">
-                  <%-- <td class="children_table_id"><%=cc.getChildid()%></td> --%>
                   <td class="children_table_name"><%=cc.getChildname()%></td>
                   <td class="children_table_phone_number"><%=cc.getChildnumber()%></td>
                   <td class="children_table_button"><button onclick="checkup('<%=cc.getChildid()%>', '<%=cc.getChildname()%>')" class="select_child">진료하기</button></td>

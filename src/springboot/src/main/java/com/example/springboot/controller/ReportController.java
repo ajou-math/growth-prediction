@@ -163,9 +163,8 @@ public class ReportController {
 
         // System.out.println("list : " + listMap);
 
-        // System.out.println("A : " + listMap.get("A"));
-        // System.out.println("B : " + listMap.get("B"));
-        // System.out.println("C : " + listMap.get("C"));
+        // System.out.println("A : " + listMap.get("BA"));
+        // System.out.println("B : " + listMap.get("PT"));
 
         // 여기까지------------------------------------------------------
 
@@ -191,6 +190,8 @@ public class ReportController {
 
     @PostMapping("/signin/recommend")
     public String recommend(Recommend recommend) {
+        System.out.println(recommend);
+
         recommendRepository.save(recommend);
 
         return "redirect:/signin/main";

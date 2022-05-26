@@ -107,7 +107,11 @@
     margin : 10px;
     background-color : #c1c1c1;
  }
- 
+ .image{
+   min-width: 500px;
+   max-width: 1060px;
+
+ }
  .textarea_box{
     height : 100px;
  }
@@ -129,4 +133,8 @@
  .privacy_table{
     width : 900px;
     margin : 20px auto;
+ }
+ 
+ .result_table_row{
+    height : 40px;
  }

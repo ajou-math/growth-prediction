@@ -28,10 +28,6 @@
 <% List<Privacy> privacylist = (List<Privacy>) request.getAttribute("privacylist"); %>
 <% AgeService as = new AgeService();%>
 <script type="text/javascript">
-
-<%!int[] arr1 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
-   double[] arr2 = {1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7, 8.8, 9.9, 10.10, 11.11, 12.12};
-   int[] arr3 = {3, 1, 4, 1, 5, 9, 6, 5, 3, 5, 1, 2};%>
    google.charts.load('current', {
       'packages' : [ 'line', 'corechart' ]
    });
@@ -52,10 +48,7 @@
          
       <%}%>
       data.addRows([
-         <%for (int i = 0 ; i < privacylist.size(); i++)  {%> // Privacy ptall : privacylist)
-        <%-- String ptallday = as.yyyyMMdd(ptall);--%>
-         //var year = <%--=ptallday--%>.substr()
-         
+         <%for (int i = 0 ; i < privacylist.size(); i++)  {%> 
          [new Date(dayList[<%=i%>].substr(0,4), dayList[<%=i%>].substr(4,2), dayList[<%=i%>].substr(6,2))   ,
          <%=privacylist.get(i).getPrivacytall()%>   ,
          <%=privacylist.get(i).getPrivacypredicttall()%>   ],
@@ -120,16 +113,6 @@
 </script>
    <%
    request.setCharacterEncoding("UTF-8");
-/* 
-   String name = request.getParameter("child_name");
-   String gender = request.getParameter("child_gender");
-   String ko_gender;
-   if (gender.equals("male")) {
-      ko_gender = "남";
-   } else {
-      ko_gender = "여";
-   }
- */
 
    %>
    <header>
@@ -141,8 +124,6 @@
             id="show_result_button">결과보기</button>
          <button onclick="show_picture_page()" class="result_menu_button"
             id="show_picture_button">사진보기</button>
-         <button onclick="show_privacy_page()" class="result_menu_button"
-            id="show_privacy_button">아이 생활 습관</button>
          <button onclick="show_report_page()" class="result_menu_button"
             id="show_report_button">이전 검사 결과</button>
 
@@ -154,32 +135,31 @@
             <div class="report_data">
                <!--  골 연령 검사 결과 내용  -->
                <table class="result_table">
-                  <tr>
+                  <tr class = "result_table_row">
                      <td class = "table_legend">이름</td>
                      <td>${childname}</td>
                   </tr>
-                  <tr>
+                  <tr class = "result_table_row">
                      <td>성별</td>
                      <td>${privacy.getPrivacygender()}</td>
                   </tr>
-                  <tr>
+                  <tr class = "result_table_row">
                      <td>골연령</td>
                      <td>${privacy.getPrivacybornage()}세</td>
                   </tr>
-                  <tr>
+                  <tr class = "result_table_row">
                      <td>역연령</td>
                      <td>${currentage}세</td>
                   </tr>
-                  
-                  <tr>
+                  <tr class = "result_table_row">
                      <td>예측 키</td>
                      <td>${privacy.getPrivacypredicttall()}cm</td>
                   </tr>
-                  <tr>
+                  <tr class = "result_table_row">
                      <td>키</td>
                      <td>${privacy.getPrivacytall()}cm</td>
                   </tr>
-                  <tr>
+                  <tr class = "result_table_row">
                      <td>체중</td>
                      <td>${privacy.getPrivacyweight()}kg</td>
                   </tr>
@@ -189,12 +169,12 @@
                <!--  의사 검진(추천 정보 입력)  -->
                <form action = "/growthprediction/signin/recommend" method = "post" class = "recommandation_form">
                   <ul>
-                     <li class="form_list"><input type="hidden" class="doctor_form" value="${report.getReportchildid()}"></li>
-                     <li class="form_list"><input type="hidden" class="doctor_form" value="${report.getReportdoctorid()}"></li>
-                     <li class="form_list">걸음걸이 입력<input type="text" class="doctor_form"></li>
-                     <li class="form_list">운동량 입력<input type="text" class="doctor_form"></li>
-                     <li class="form_list">수면 시간 입력<input type="text" class="doctor_form"></li>
-                     <li class = "form_list">소견<textarea class = "doctor_form textarea_box"></textarea></li>
+                     <li class="form_list"><input type="hidden" class="doctor_form" value="${report.getReportchildid()}" name = "recommendchildid"></li>
+                     <li class="form_list"><input type="hidden" class="doctor_form" value="${report.getReportdoctorid()}" name = "recommenddoctorid"></li>
+                     <li class="form_list">걸음걸이 입력<input type="text" class="doctor_form" name = "recommendwalk"></li>
+                     <li class="form_list">운동량 입력<input type="text" class="doctor_form" name = "recommendworkout"></li>
+                     <li class="form_list">수면 시간 입력<input type="text" class="doctor_form" name = "recommendsleep"></li>
+                     <li class = "form_list">소견<textarea class = "doctor_form textarea_box" name = "recommendcomment"></textarea></li>
                      <li class="form_list last"><button class="submit_button">제출</button></li>
                   </ul>
                </form>
@@ -208,23 +188,10 @@
             <div class="bone_image">
                
                <% String imgblob = (String) request.getAttribute("imgblob");%>
-               <img src="data:image/png;base64, <%=imgblob%>" width="1060px">
+               <img src="data:image/png;base64, <%=imgblob%>" class = "image">
             </div>
          </div>
       </div>
-
-      <!-- 아이 생활정보 관련 페이지 -->
-      <div id="child_privacy_page">
-         <div class="privacy_page_box">
-            <table class = "privacy_table">
-            <tr><td>날짜</td><td>운동량</td><td>수면시간</td><td>걸음걸이</td></tr>
-            <%-- <%for ( report before : reports){ %>
-            <tr><td><%=before.date%></td><td><%=before.boneage%></td><td><%=before.age%></td><td><%before.height%></td><td><%=before.predheight%></td><td>사진보기</td></tr>
-            <%} %> --%>
-            </table>
-         </div>
-      </div>
-
 
       <!-- 이전의 골연령 검사 결과  -->
       <div id="child_report_page">

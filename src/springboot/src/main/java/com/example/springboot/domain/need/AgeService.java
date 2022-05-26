@@ -11,7 +11,7 @@ public class AgeService {
         SimpleDateFormat sdf = new SimpleDateFormat("yy");
         String year2 = sdf.format(privacy.getPrivacyenterday());
         int y2 = Integer.parseInt(year2);
-        int age = y2 - y1 + 1; // 한국 나이
+        int age = y2 - y1; // 만 나이
         if (y1 > y2) {
             age = age + 100;
         }
