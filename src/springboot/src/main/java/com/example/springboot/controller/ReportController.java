@@ -133,6 +133,14 @@ public class ReportController {
         privacy.setPrivacyenterday(ts);
 
         // 여기에 파이썬이랑 연동하는 키--------------------------------------------------
+        String male = new String();
+        if (resultDTO.getChildgender().equals("male")) {
+            male = "True";
+        } else {
+            male = "False";
+        }
+        String jsonlink = "http://127.0.0.1:5000/tospring/" + image.getFilename() + "/" + male + "/"
+                + resultDTO.getChildheight();
         URL jsonurl = new URL("http://127.0.0.1:5000/tospring/a/b/c");
         HttpURLConnection conn = (HttpURLConnection) jsonurl.openConnection();
         StringBuffer stb = new StringBuffer();
