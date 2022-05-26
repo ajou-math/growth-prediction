@@ -206,8 +206,9 @@
       <div id="child_bone_page">
          <div class="bone_page_box">
             <div class="bone_image">
-               <img src="${repath}" width="1060px">
-               <!-- /growthprediction/img/xray/sample.png -->
+               
+               <% String imgblob = (String) request.getAttribute("imgblob");%>
+               <img src="data:image/png;base64, <%=imgblob%>" width="1060px">
             </div>
          </div>
       </div>

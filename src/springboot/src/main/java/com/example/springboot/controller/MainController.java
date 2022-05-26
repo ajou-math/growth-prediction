@@ -7,6 +7,8 @@ import java.util.List;
 import com.example.springboot.config.auth.PrincipleDetails;
 import com.example.springboot.domain.Child;
 import com.example.springboot.repository.ChildRepository;
+import com.example.springboot.repository.DoctorRepository;
+import com.example.springboot.domain.Doctor;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -21,6 +23,9 @@ public class MainController {
 
     @Autowired
     private ChildRepository childRepository;
+
+    @Autowired
+    private DoctorRepository doctorRepository;
 
     @Autowired
     public BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -66,6 +71,18 @@ public class MainController {
         childRepository.save(child);
 
         return "redirect:/signin/main";
+    }
+
+    @GetMapping("/signin/info")
+    public String info(Model model) {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        PrincipleDetails doctorDetails = (PrincipleDetails) principal;
+
+        String doctorid = doctorDetails.getUsername();
+        Doctor doctor = doctorRepository.findByDoctorid(doctorid);
+
+        model.addAttribute("doctor", doctor);
+        return "signin/info";
     }
 
 }

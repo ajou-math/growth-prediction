@@ -40,7 +40,9 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
 
-	implementation group: 'com.auth0', name: 'java-jwt', version: '3.19.1'
+	implementation 'com.google.api-client:google-api-client:1.33.0'
+    implementation 'com.google.oauth-client:google-oauth-client-jetty:1.32.1'
+    implementation 'com.google.apis:google-api-services-drive:v3-rev20211107-1.32.1'
 
 
 }

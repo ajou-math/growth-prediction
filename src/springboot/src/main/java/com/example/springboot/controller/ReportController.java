@@ -1,19 +1,33 @@
 package com.example.springboot.controller;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.sql.Timestamp;
+import java.util.Base64;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
+import com.example.springboot.domain.Image;
 import com.example.springboot.domain.Privacy;
 import com.example.springboot.domain.Recommend;
 import com.example.springboot.domain.Report;
 import com.example.springboot.domain.need.AgeService;
 import com.example.springboot.domain.need.ResultDTO;
+import com.example.springboot.repository.ImageRepository;
 import com.example.springboot.repository.PrivacyRepository;
 import com.example.springboot.repository.RecommendRepository;
 import com.example.springboot.repository.ReportRepository;
+import com.fasterxml.jackson.annotation.JsonKey;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mysql.cj.jdbc.Blob;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +38,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class ReportController {
+
+    @Autowired
+    private ImageRepository imageRepository;
 
     @Autowired
     private ReportRepository reportRepository;
@@ -43,34 +60,58 @@ public class ReportController {
         Date date = new Date();
         StringBuilder sb = new StringBuilder();
         String url = new String();
+        Image image = new Image();
+
+        // blob----------------------------------------------------------------------------
+        byte[] bytes = file.getBytes();
+        image.setFilename(file.getOriginalFilename());
+        try {
+            image.setImage(Base64.getEncoder().encodeToString(file.getBytes()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        imageRepository.save(image);
+
+        // String imgblob = new String((byte[]) image.getImage());
+        model.addAttribute("imgblob", image.getImage());
+        System.out.println(image.getImage());
+        report.setReportxray(file.getOriginalFilename());
+
+        // blob---------------------------------------------------------------------------
 
         // file image 가 없을 경우
-        if (file.isEmpty()) {
-            sb.append("none");
-        } else {
-            sb.append(date.getTime());
-            sb.append(file.getOriginalFilename());
-        }
+        // if (file.isEmpty()) {
+        // sb.append("none");
+        // } else {
+        // sb.append(date.getTime());
+        // sb.append(file.getOriginalFilename());
+        // }
 
-        if (!file.isEmpty()) {
-            String path = System.getProperty("user.dir");
-            File p = new File(path);
-            p = p.getParentFile();
-            String pa = p.getParent();
-            url = pa + "/src/main/resources/static/img/xray/" + sb.toString();
-            // File dest1 = new File(url1);
-            File dest = new File(url);
+        // if (!file.isEmpty()) {
+        // String path = System.getProperty("user.dir");
+        // System.out.println(path);
+        // File p = new File(path);
+        // p = p.getParentFile();
+        // String pa = p.getParent();
+        // System.out.println(pa);
+        // url = pa + "/src/main/resources/static/img/xray/" + sb.toString();
+        // // File dest1 = new File(url1);
+        // String url2 = pa + "/build/resources/main/static/img/xray/" + sb.toString();
+        // System.out.println(url);
+        // File dest = new File(url);
 
-            try {
-                file.transferTo(dest);
-            } catch (IllegalStateException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            // db에 파일 위치랑 번호 등록
-            report.setReportxray(sb.toString());
-        }
+        // try {
+        // file.transferTo(dest);
+        // } catch (IllegalStateException e) {
+        // e.printStackTrace();
+        // } catch (IOException e) {
+        // e.printStackTrace();
+        // }
+        // // db에 파일 위치랑 번호 등록
+        // report.setReportxray(sb.toString());
+        // }
+        // transferTo 사용
+        // ----------------------------------------------------------------------
 
         Privacy privacy = new Privacy();
         privacy.setPrivacychildid(resultDTO.getChildid());
@@ -91,20 +132,48 @@ public class ReportController {
         report.setReportdate(ts);
         privacy.setPrivacyenterday(ts);
 
-        // 여기에 파이썬이랑 연동하는 키
+        // 여기에 파이썬이랑 연동하는 키--------------------------------------------------
+        URL jsonurl = new URL("http://127.0.0.1:5000/tospring/a/b/c");
+        HttpURLConnection conn = (HttpURLConnection) jsonurl.openConnection();
+        StringBuffer stb = new StringBuffer();
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            Thread.sleep(6000);
+            conn.setRequestMethod("GET");
+            conn.setRequestProperty("Content-type", "application/json");
+            conn.setDoOutput(true);
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
+            while (br.ready()) {
+                stb.append(br.readLine());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        String jstr = stb.toString();
+        Map<String, Object> listMap = mapper.readValue(jstr,
+                new TypeReference<Map<String, Object>>() {
+                });
+
+        // System.out.println("list : " + listMap);
+        // System.out.println("A : " + listMap.get("A"));
+        // System.out.println("B : " + listMap.get("B"));
+        // System.out.println("C : " + listMap.get("C"));
+
+        // 여기까지------------------------------------------------------
 
         AgeService as = new AgeService();
         int age = as.yy(privacy);
-
-        String repath = "/growthprediction/img/xray/" + report.getReportxray();
+        // String repath = "/growthprediction/img/xray/" + report.getReportxray();
         model.addAttribute("privacy", privacy);
-        model.addAttribute("repath", repath);
+        // model.addAttribute("repath", repath);
+        model.addAttribute("reportxray", report.getReportxray());
         model.addAttribute("childname", resultDTO.getChildname());
 
         List<Privacy> privacylist = privacyRepository.findAllByPrivacychildid(privacy.getPrivacychildid());
         List<Report> reportlist = reportRepository.findAllByReportchildid(privacy.getPrivacychildid());
         model.addAttribute("privacylist", privacylist);
-        System.out.println(privacylist);
         model.addAttribute("reportlist", reportlist);
         model.addAttribute("currentage", age);
 
