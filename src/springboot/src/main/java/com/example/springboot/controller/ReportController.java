@@ -73,41 +73,6 @@ public class ReportController {
         report.setReportxray(file.getOriginalFilename());
 
         // blob---------------------------------------------------------------------------
-
-        // file image 가 없을 경우
-        // if (file.isEmpty()) {
-        // sb.append("none");
-        // } else {
-        // sb.append(date.getTime());
-        // sb.append(file.getOriginalFilename());
-        // }
-
-        // if (!file.isEmpty()) {
-        // String path = System.getProperty("user.dir");
-        // System.out.println(path);
-        // File p = new File(path);
-        // p = p.getParentFile();
-        // String pa = p.getParent();
-        // System.out.println(pa);
-        // url = pa + "/src/main/resources/static/img/xray/" + sb.toString();
-        // // File dest1 = new File(url1);
-        // String url2 = pa + "/build/resources/main/static/img/xray/" + sb.toString();
-        // System.out.println(url);
-        // File dest = new File(url);
-
-        // try {
-        // file.transferTo(dest);
-        // } catch (IllegalStateException e) {
-        // e.printStackTrace();
-        // } catch (IOException e) {
-        // e.printStackTrace();
-        // }
-        // // db에 파일 위치랑 번호 등록
-        // report.setReportxray(sb.toString());
-        // }
-        // transferTo 사용
-        // ----------------------------------------------------------------------
-
         Privacy privacy = new Privacy();
         privacy.setPrivacychildid(resultDTO.getChildid());
         privacy.setPrivacygender(resultDTO.getChildgender());
@@ -128,43 +93,41 @@ public class ReportController {
         privacy.setPrivacyenterday(ts);
 
         // 여기에 파이썬이랑 연동하는 키--------------------------------------------------
-        // String male = new String();
-        // if (resultDTO.getChildgender().equals("male")) {
-        // male = "True";
-        // } else {
-        // male = "False";
-        // }
-        // String jsonlink = "http://127.0.0.1:5000/tospring/" + image.getFilename() +
-        // "/" + male + "/"
-        // + resultDTO.getChildheight();
-        // URL jsonurl = new URL(jsonlink);
-        // HttpURLConnection conn = (HttpURLConnection) jsonurl.openConnection();
-        // StringBuffer stb = new StringBuffer();
-        // ObjectMapper mapper = new ObjectMapper();
-        // try {
-        // Thread.sleep(6000);
-        // conn.setRequestMethod("GET");
-        // conn.setRequestProperty("Content-type", "application/json");
-        // conn.setDoOutput(true);
+        String male = new String();
+        if (resultDTO.getChildgender().equals("male")) {
+            male = "True";
+        } else {
+            male = "False";
+        }
+        String jsonlink = "http://127.0.0.1:5000/tospring/" + image.getFilename() +
+                "/" + male + "/"
+                + resultDTO.getChildheight();
+        URL jsonurl = new URL(jsonlink);
+        HttpURLConnection conn = (HttpURLConnection) jsonurl.openConnection();
+        StringBuffer stb = new StringBuffer();
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            Thread.sleep(6000);
+            conn.setRequestMethod("GET");
+            conn.setRequestProperty("Content-type", "application/json");
+            conn.setDoOutput(true);
 
-        // BufferedReader br = new BufferedReader(new
-        // InputStreamReader(conn.getInputStream(), "UTF-8"));
-        // while (br.ready()) {
-        // stb.append(br.readLine());
-        // }
-        // } catch (Exception e) {
-        // e.printStackTrace();
-        // }
+            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
+            while (br.ready()) {
+                stb.append(br.readLine());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-        // String jstr = stb.toString();
-        // Map<String, Object> listMap = mapper.readValue(jstr,
-        // new TypeReference<Map<String, Object>>() {
-        // });
+        String jstr = stb.toString();
+        Map<String, Object> listMap = mapper.readValue(jstr,
+                new TypeReference<Map<String, Object>>() {
+                });
 
-        // System.out.println("list : " + listMap);
+        System.out.println("list : " + listMap);
 
-        // System.out.println("A : " + listMap.get("BA"));
-        // System.out.println("B : " + listMap.get("PT"));
+        System.out.println("A : " + listMap.get("A"));
 
         // 여기까지------------------------------------------------------
 

@@ -146,7 +146,7 @@
                   </tr>
                   <tr class = "result_table_row">
                      <td>골연령</td>
-                     <td>${privacy.getPrivacybornage()}세</td>
+                     <td>${privacy.getPrivacybornage()}</td>
                   </tr>
                   <tr class = "result_table_row">
                      <td>역연령</td>
@@ -154,7 +154,7 @@
                   </tr>
                   <tr class = "result_table_row">
                      <td>예측 키</td>
-                     <td>${privacy.getPrivacypredicttall()}cm</td>
+                     <td>${privacy.getPrivacypredicttall()}</td>
                   </tr>
                   <tr class = "result_table_row">
                      <td>키</td>
