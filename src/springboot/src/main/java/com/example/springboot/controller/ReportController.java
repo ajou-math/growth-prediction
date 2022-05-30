@@ -108,11 +108,10 @@ public class ReportController {
         StringBuffer stb = new StringBuffer();
         ObjectMapper mapper = new ObjectMapper();
         try {
-            Thread.sleep(6000);
             conn.setRequestMethod("GET");
             conn.setRequestProperty("Content-type", "application/json");
             conn.setDoOutput(true);
-
+            // Thread.sleep(10000);
             BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
             while (br.ready()) {
                 stb.append(br.readLine());
@@ -126,9 +125,13 @@ public class ReportController {
                 new TypeReference<Map<String, Object>>() {
                 });
 
-        System.out.println("list : " + listMap);
+        System.out.println(listMap.get("BA"));
+        System.out.println(listMap.get("PH"));
 
-        System.out.println("A : " + listMap.get("A"));
+        privacy.setPrivacybornage(((Number) listMap.get("BA")).floatValue());
+        privacy.setPrivacypredicttall(((Number) listMap.get("PH")).floatValue());
+        report.setReportbornage(((Number) listMap.get("BA")).floatValue());
+        report.setReportpredicttall(((Number) listMap.get("PH")).floatValue());
 
         // 여기까지------------------------------------------------------
 
