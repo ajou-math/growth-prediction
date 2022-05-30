@@ -102,6 +102,7 @@ public class ReportController {
         String jsonlink = "http://127.0.0.1:5000/tospring/" + image.getFilename() +
                 "/" + male + "/"
                 + resultDTO.getChildheight();
+        // http://3.92.110.182:5000/tospring/
         URL jsonurl = new URL(jsonlink);
         HttpURLConnection conn = (HttpURLConnection) jsonurl.openConnection();
         StringBuffer stb = new StringBuffer();
