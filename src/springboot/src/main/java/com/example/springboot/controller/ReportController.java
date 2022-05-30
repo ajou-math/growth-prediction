@@ -121,6 +121,7 @@ public class ReportController {
         }
 
         String jstr = stb.toString();
+        System.out.println(jstr);
         Map<String, Object> listMap = mapper.readValue(jstr,
                 new TypeReference<Map<String, Object>>() {
                 });
