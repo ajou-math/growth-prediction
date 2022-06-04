@@ -11,23 +11,23 @@ V
 * 밖에 있는 파일은 로그인화면, 회원가입화면으로 사용됨
 * css, js, img는 resources -> static에 정적 파일로 보관
 
-#M (경로 혹시모르니 적어두겟음 src -> main -> java -> com -> example -> springboot)
+M (Path : src -> main -> java -> com -> example -> springboot)
 * domain폴더에 DB에 정의한 Table별로 정리
 * JPA라이브러리를 활용하여 각 private가 해당 Table의 colume과 일치하도록 만듬
 * JPA라이브러리에 @Data를 사용하여 getter/setter 적용
 * need폴더는 DB에 정의되어있지 않은 Table을 임의로 만들어 모아둔 폴더
 
-#C
-#config
+C
+config
 * config폴더는 스프링 시큐리티의 웹 보안 기능의 초기화 및 설정들을 담당하는 내용
 * 로그인과 권한에 따른 view 접속 설정
 * auth에서 로그인 처리
 
-#repository
+repository
 * JPA라이브러리를 이용한 repository interface
 * save(), find() 메서드가 기본적으로 내장되어 있어서 손쉽게 db접근
 
-#controller
+controller
 * appapi폴더는 flutter에서 db에 편하게 접근시키기 위해 만든 api폴더
 * IndexController는 로그인 전 Controller: 로그인 회원가입 controll
 * MainController는 로그인 후 child검사결과 전 Controller: child list 정렬
