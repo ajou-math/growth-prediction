@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">451532208073-hgvn92htos6gkvrub77ri7fauucr49dq.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">451532208073</string>
+    <string name="google_api_key" translatable="false">AIzaSyAtjrp4Ax8gxXaPzHDrpi7-5t7k0H9V2hU</string>
+    <string name="google_app_id" translatable="false">1:451532208073:android:d5b9d59537f69c5104da18</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAtjrp4Ax8gxXaPzHDrpi7-5t7k0H9V2hU</string>
+    <string name="google_storage_bucket" translatable="false">growthprediction.appspot.com</string>
+    <string name="project_id" translatable="false">growthprediction</string>
+</resources>

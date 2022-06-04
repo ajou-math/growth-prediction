@@ -1,0 +1,4 @@
+#Wed May 25 14:07:14 KST 2022
+base.0=/Users/yoonkiung/Desktop/growth-prediction/src/mobile/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
