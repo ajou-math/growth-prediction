@@ -3,9 +3,8 @@
 * spring boot로 백엔드 개발
 * web frontend 로 jsp를 사용하기 때문에 war파일로 배포
 
-#MVC
-#V
-(src -> test는 신경 안써도됨)
+MVC
+V
 * web frontend 로 jsp를 사용하기 때문에 webapp폴더를 만들어 WEB-INF에 view 설정
 * views 폴더에서 error 폴더는 로그인 후 접근 권한이 없을 때 보여주는 화면
 * signin 폴더는 로그인 후 의사가 보는 화면
