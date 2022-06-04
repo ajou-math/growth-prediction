@@ -1,0 +1,17 @@
+.doctor_info {
+    margin : 30px auto;
+ }
+ 
+ tr, td{
+    height : 70px;
+    text-align : center;
+ }
+ 
+ .info_name{
+    width : 130px;
+    background-color : #b0b0b0;
+ }
+ 
+ .info_value{
+    width : 300px;
+ }
