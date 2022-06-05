@@ -1,5 +1,5 @@
 # Backend Spring boot
-
+* 의사가 보는 WEB화면 개발 및 DB개발
 * spring boot로 백엔드 개발
 * web frontend 로 jsp를 사용하기 때문에 war파일로 배포
 
