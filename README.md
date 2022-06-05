@@ -1,7 +1,7 @@
 # 2022-1 Ajou-software capston design
 * 상세정보는 각 folder에 있는 README.md파일을 참고하세요!
 
-### TEAM 
+### TEAM성장통
 ### Member
 * 수학과 최형준 chsam2@ajou.ac.kr
 * 수학과 윤기웅 rldnd4429@ajou.ac.kr
