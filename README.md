@@ -16,4 +16,4 @@
 ###
 
 ### technology stack
-<img src="https://user-images.githubusercontent.com/90519259/172032155-d9d942f9-2ff5-4e12-afc3-368c634cee80.png" width="300" heignt="600"/>
+<img src="https://user-images.githubusercontent.com/90519259/172032155-d9d942f9-2ff5-4e12-afc3-368c634cee80.png" width="600" heignt="1200"/>
