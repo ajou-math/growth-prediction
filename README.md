@@ -2,11 +2,11 @@
 * 상세정보는 각 folder에 있는 README.md파일을 참고하세요!
 
 ### Member
-수학과 최형준 chsam2@ajou.ac.kr
-수학과 윤기웅 rldnd4429@ajou.ac.kr
-수학과 조우연 qt5828@ajou.ac.kr
-수학과 최아림 chldkfla@ajou.ac.kr
-수학과 최윤석 qqjackpp@ajou.ac.kr
+* 수학과 최형준 chsam2@ajou.ac.kr
+* 수학과 윤기웅 rldnd4429@ajou.ac.kr
+* 수학과 조우연 qt5828@ajou.ac.kr
+* 수학과 최아림 chldkfla@ajou.ac.kr
+* 수학과 최윤석 qqjackpp@ajou.ac.kr
 ###
 ### Motivation
 * 골 연령 검사란 아이의 성장을 돕기 위하여 의사가 아이의 손 뼈 사진을 보고 다양한 손 뼈 사진과 비교하여 골연령을 유추하고 예측 키를 도출하는 것입니다.
