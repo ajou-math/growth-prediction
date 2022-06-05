@@ -7,7 +7,7 @@
 * GetX로 개발
 
 # 로그인화면과 최초 로그인 화면
-![login](https://user-images.githubusercontent.com/90519259/172031245-7361e1ec-b056-49a9-a4b6-053b4722d710.png)
+![login](https://user-images.githubusercontent.com/90519259/172031245-7361e1ec-b056-49a9-a4b6-053b4722d710.png){: width="50" height="50"}
 
 ![firstLogin](https://user-images.githubusercontent.com/90519259/172031253-ab7cc5e7-0b1b-4182-9cf8-1b7ac97ddc0b.png)
 
