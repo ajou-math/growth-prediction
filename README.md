@@ -18,3 +18,8 @@
 
 ### technology stack
 <img src="https://user-images.githubusercontent.com/90519259/172032155-d9d942f9-2ff5-4e12-afc3-368c634cee80.png" width="600" heignt="1200"/>
+
+### award
+2022-1 Ajou-software capston design 최우수상 수상  
+![수상사진1](https://user-images.githubusercontent.com/90519259/175444585-a70ad0a9-bb40-416d-91d8-af798e28b6b1.jpeg)
+![수상사진2](https://user-images.githubusercontent.com/90519259/175444637-00869b65-2396-46a8-8426-d7d86131b97c.jpeg)
