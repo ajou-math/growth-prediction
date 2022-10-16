@@ -4,17 +4,18 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_native_timezone/flutter_native_timezone.dart';
-import 'package:mobile/providers/alarm_provider.dart';
-import 'package:mobile/providers/clock_type_provider.dart';
-import 'package:mobile/providers/theme_provider.dart';
-import 'package:mobile/screens/modify_alarm_screen.dart';
-import 'package:mobile/theme.dart';
+import 'package:mobile/sleep/theme.dart';
 import 'package:provider/provider.dart';
 import 'package:timezone/data/latest_all.dart';
 import 'package:timezone/timezone.dart';
 import 'models/alarm_hive_storage.dart';
+import 'providers/alarm_provider.dart';
+import 'providers/clock_type_provider.dart';
+import 'providers/theme_provider.dart';
 import 'screens/home_screen.dart';
 import 'package:get/get.dart';
+
+import 'screens/modify_alarm_screen.dart';
 
 class Sleep extends StatefulWidget {
   const Sleep({Key? key, required this.sleep}) : super(key: key);

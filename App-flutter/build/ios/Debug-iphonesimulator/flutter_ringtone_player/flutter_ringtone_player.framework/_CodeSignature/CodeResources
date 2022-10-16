@@ -14,7 +14,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		VPbi7/nPhPy/vRxdgIuoN7dKRkE=
+		oi3rWw7ZYbVy4DBu80va9iczWh0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -25,10 +25,6 @@
 	<dict>
 		<key>Headers/FlutterRingtonePlayerPlugin.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			0/GqeeUmsCL7ebaQATgXbv7MaLY=
-			</data>
 			<key>hash2</key>
 			<data>
 			UyNh3PaDPBIBiHWYuixQK3FOK8tqtokY3z93yiFaDt8=
@@ -36,10 +32,6 @@
 		</dict>
 		<key>Headers/flutter_ringtone_player-umbrella.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			fF97DxS1lFlLZ4rHwQ7UNpukq0k=
-			</data>
 			<key>hash2</key>
 			<data>
 			QnYohhS/aWb+izJvbJvQjk4D44HJstkHPBVoQ/84XDA=
@@ -47,10 +39,6 @@
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			dnWk00aOigSf0jsOofh5LU7/wtg=
-			</data>
 			<key>hash2</key>
 			<data>
 			9r35tf+IpYPh5EdfcI0rXUV9GHzHGsj49oInhyy6100=

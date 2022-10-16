@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:mobile/helpers/clock_helper.dart';
-import 'package:mobile/models/alarm_hive_storage.dart';
-import 'package:mobile/models/data_models/alarm_data_model.dart';
+import 'package:mobile/sleep/helpers/clock_helper.dart';
+import 'package:mobile/sleep/models/alarm_hive_storage.dart';
+import 'package:mobile/sleep/models/data_models/alarm_data_model.dart';
 import 'package:timezone/timezone.dart';
 
 class AlarmModel extends ChangeNotifier {

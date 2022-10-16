@@ -75,10 +75,6 @@ class ExResult extends StatelessWidget {
             ),
           );
         },
-        // separatorBuilder: (BuildContext context, int index) => const Divider(
-        //   height: 10.0,
-        //   color: Colors.blue,
-        // ),
       ),
     );
   }

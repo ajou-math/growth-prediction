@@ -1,9 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:mobile/constants.dart';
-import 'package:mobile/screens/components/change_theme_icon_button.dart';
-import 'package:mobile/size_config.dart';
+import 'package:mobile/sleep/constants.dart';
+import 'package:mobile/sleep/screens/components/change_theme_icon_button.dart';
+import 'package:mobile/sleep/size_config.dart';
 
 import 'clock_painter.dart';
 

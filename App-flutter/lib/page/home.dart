@@ -7,9 +7,9 @@ import 'package:mobile/login/login.dart';
 import 'package:mobile/network/GetComm.dart';
 import 'package:mobile/page/current.dart';
 import 'package:mobile/page/exResult.dart';
-import 'package:mobile/sleep.dart';
 import 'package:http/http.dart' as http;
 import 'package:get/get.dart' as g;
+import 'package:mobile/sleep/sleep.dart';
 
 class MyHome extends StatelessWidget {
   MyHome({

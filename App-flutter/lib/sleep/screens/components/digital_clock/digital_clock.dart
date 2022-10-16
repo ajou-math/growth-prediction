@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:mobile/helpers/clock_helper.dart';
-import 'package:mobile/screens/components/change_theme_icon_button.dart';
+import 'package:mobile/sleep/helpers/clock_helper.dart';
+import 'package:mobile/sleep/screens/components/change_theme_icon_button.dart';
 
 import '../spinner_widget.dart';
 import 'clock_model.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/providers/clock_type_provider.dart';
-import 'package:mobile/screens/components/analog_clock/analog_clock.dart';
-import 'package:mobile/screens/components/digital_clock/digital_clock.dart';
+import 'package:mobile/sleep/providers/clock_type_provider.dart';
+import 'package:mobile/sleep/screens/components/analog_clock/analog_clock.dart';
+import 'package:mobile/sleep/screens/components/digital_clock/digital_clock.dart';
 import 'package:provider/provider.dart';
 
 class Body extends StatelessWidget {

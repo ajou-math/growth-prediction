@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:mobile/providers/theme_provider.dart';
+import 'package:mobile/sleep/providers/theme_provider.dart';
 import 'package:provider/provider.dart';
 
 class ChangeThemeIconButton extends StatelessWidget {

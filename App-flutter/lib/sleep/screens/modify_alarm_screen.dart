@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile/helpers/clock_helper.dart';
-import 'package:mobile/models/data_models/alarm_data_model.dart';
-import 'package:mobile/providers/alarm_provider.dart';
+import 'package:mobile/sleep/helpers/clock_helper.dart';
+import 'package:mobile/sleep/models/data_models/alarm_data_model.dart';
+import 'package:mobile/sleep/providers/alarm_provider.dart';
 import 'package:provider/provider.dart';
 
 class ModifyAlarmScreenArg {

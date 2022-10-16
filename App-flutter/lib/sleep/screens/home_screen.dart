@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:mobile/helpers/clock_helper.dart';
-import 'package:mobile/models/data_models/alarm_data_model.dart';
-import 'package:mobile/providers/alarm_provider.dart';
-import 'package:mobile/providers/clock_type_provider.dart';
-import 'package:mobile/screens/components/spinner_widget.dart';
-import 'package:mobile/screens/modify_alarm_screen.dart';
-import 'package:mobile/size_config.dart';
+import 'package:mobile/sleep/helpers/clock_helper.dart';
+import 'package:mobile/sleep/models/data_models/alarm_data_model.dart';
+import 'package:mobile/sleep/providers/alarm_provider.dart';
+import 'package:mobile/sleep/providers/clock_type_provider.dart';
+import 'package:mobile/sleep/screens/components/spinner_widget.dart';
+import 'package:mobile/sleep/screens/modify_alarm_screen.dart';
+import 'package:mobile/sleep/size_config.dart';
 import 'package:provider/provider.dart';
 
 import 'components/body.dart';
@@ -107,7 +107,9 @@ class _AlarmScheetState extends State<AlarmScheet>
 
   @override
   void initState() {
-    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+    // WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+    //remove !
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       _controller = AnimationController(
         vsync: this,
         duration: const Duration(milliseconds: 200),
