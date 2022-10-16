@@ -1,5 +1,6 @@
 import 'package:http/http.dart' as http;
-import 'dart:convert';
+
+String ipAddress = 'http://3.34.248.86:8080';
 
 class GetComm {
   String childName = '';
@@ -7,7 +8,7 @@ class GetComm {
     this.childName = childName;
   }
 
-  String url = 'http://3.34.248.86:8080/growthprediction/child/';
+  String url = ipAddress + '/growthprediction/child/';
   Future<http.Response> sendGet() async {
     return (await http.get(
       Uri.parse(url + childName),

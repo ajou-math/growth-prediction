@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'GetComm.dart';
 
 class Post {
   String? childId;
@@ -10,9 +11,9 @@ class Post {
   String? newPw;
 
   var loginUrl =
-      Uri.parse('http://3.34.248.86:8080/growthprediction/child-login');
+      Uri.parse(ipAddress + '/growthprediction/child-login');
   var changePwUrl =
-      Uri.parse('http://3.34.248.86:8080/growthprediction/child-changepw');
+      Uri.parse(ipAddress + '/growthprediction/child-changepw');
   Map<String, String> headers = {
     'content-Type': 'application/json',
     'Accept': 'application/json',
